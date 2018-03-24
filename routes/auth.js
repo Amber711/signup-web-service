@@ -6,7 +6,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var userService = require('../services/auth.service');
 
 
-
 router.post('/signup', urlencodedParser,(req, res, next) => {
 	if(!req.body) {return res.sendStatus(400)};
 	let user = {
@@ -15,13 +14,11 @@ router.post('/signup', urlencodedParser,(req, res, next) => {
 		"username": req.body.username,
 		"password": req.body.lastname
 	}
-	console.log('user:', user)	
 	userService.signup(user)
 		.then(newUser => {
 			res.send(`User created successfully! User ID is ${newUser.id}`);
-			//res.json(newUser.id);
 		}, err => {
-			res.status(400).send("user already exists!");
+			res.status(400).send("user already exists.");
 		})
 		
 	
