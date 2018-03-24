@@ -1,0 +1,3 @@
+{
+	"mongoDbUri": "mongodb://amber:123456@ds123259.mlab.com:23259/user"
+}
